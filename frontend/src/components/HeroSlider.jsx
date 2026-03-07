@@ -4,17 +4,17 @@ import './HeroSlider.css'
 
 const slides = [
   {
-    image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920',
+    image: 'https://icdn.lenta.ru/images/2026/03/05/16/20260305163038491/preview_e4408e4ab24864d36f8679f7646b5978.jpg',
     title: 'Музыка и кино в одном месте',
     subtitle: 'Откройте для себя саундтреки к любимым фильмам',
   },
   {
-    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920',
+    image: 'https://avatars.mds.yandex.net/get-afishanew/4768735/8c1ea059febeb2f5549bf85eb090a466/960x690_noncrop',
     title: 'Тысячи фильмов и треков',
     subtitle: 'Найдите то, что вдохновляет вас',
   },
   {
-    image: 'https://images.unsplash.com/photo-1517604931442-71053e3e2c28?w=1920',
+    image: 'https://i.ytimg.com/vi/zXuo6rZxA_w/maxresdefault.jpg',
     title: 'Сообщество единомышленников',
     subtitle: 'Обсуждайте и делитесь своими впечатлениями',
   },
