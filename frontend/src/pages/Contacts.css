@@ -1,0 +1,154 @@
+.contacts {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.contacts__header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  text-align: center;
+}
+
+.contacts__title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.contacts__subtitle {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.contacts__container {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.contacts__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contacts__card {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.contacts__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.contacts__icon {
+  color: var(--accent);
+  margin: 0 auto 16px;
+}
+
+.contacts__card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contacts__card a,
+.contacts__card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.contacts__card a:hover {
+  color: var(--accent);
+}
+
+.contacts__form {
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+}
+
+.contacts__form-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.contacts__field {
+  margin-bottom: 20px;
+}
+
+.contacts__field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.contacts__field input,
+.contacts__field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  transition: var(--transition-fast);
+}
+
+.contacts__field input:focus,
+.contacts__field textarea:focus {
+  border-color: var(--accent);
+}
+
+.contacts__field input::placeholder,
+.contacts__field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contacts__field textarea {
+  resize: vertical;
+}
+
+.contacts__submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-pill);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.contacts__submit:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.contacts__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 968px) {
+  .contacts__container {
+    grid-template-columns: 1fr;
+  }
+}

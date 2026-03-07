@@ -1,0 +1,129 @@
+.comment-section {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--bg-highlight);
+}
+
+.comment-section__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.comment-section__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.comment-section__textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bg-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 14px;
+  resize: vertical;
+  transition: var(--transition-fast);
+}
+
+.comment-section__textarea:focus {
+  border-color: var(--accent);
+}
+
+.comment-section__textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.comment-section__submit {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--border-radius-pill);
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+}
+
+.comment-section__submit:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.comment-section__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.comment-section__login {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.comment-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-section__item {
+  background: var(--bg-tertiary);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+.comment-section__item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-section__author {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.comment-section__date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.comment-section__text {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.comment-section__delete {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  color: var(--text-muted);
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  transition: var(--transition-fast);
+}
+
+.comment-section__delete:hover {
+  color: var(--danger);
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.comment-section__loading,
+.comment-section__empty {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 20px;
+}

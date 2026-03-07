@@ -1,0 +1,122 @@
+.home__stats {
+  padding: 40px 0;
+  background: var(--bg-secondary);
+}
+
+.home__stats-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+.home__stat-item {
+  text-align: center;
+}
+
+.home__stat-value {
+  display: block;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.home__stat-label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.home__search {
+  padding: 40px 24px;
+}
+
+.home__search-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-tertiary);
+  border-radius: var(--border-radius-pill);
+  border: 1px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.home__search-form:focus-within {
+  border-color: var(--accent);
+}
+
+.home__search-form svg {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.home__search-form input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.home__search-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section__title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.section__link {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 14px;
+  transition: var(--transition-fast);
+}
+
+.section__link:hover {
+  color: var(--accent-hover);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.tracks-grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .home__stats-inner {
+    gap: 40px;
+  }
+
+  .home__stat-value {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
