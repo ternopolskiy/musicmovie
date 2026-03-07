@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.db
+*.sqlite
+*.sqlite3
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.vscode/
+
+# Uploaded files (but keep directory structure)
+app/static/uploads/*
+!app/static/uploads/.gitkeep
+!app/static/uploads/README.md
+!app/static/uploads/avatars/
+app/static/uploads/avatars/*
+!app/static/uploads/avatars/.gitkeep
+
+
+# Tech
+tech1.md
+tech2.md
+SITEMAP.md
+NAVIGATION_TREE.md
+NAVIGATION_MAP.md
