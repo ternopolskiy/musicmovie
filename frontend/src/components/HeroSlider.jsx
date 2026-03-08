@@ -14,7 +14,7 @@ const slides = [
     subtitle: 'Найдите то, что вдохновляет вас',
   },
   {
-    image: 'https://i.ytimg.com/vi/zXuo6rZxA_w/maxresdefault.jpg',
+    image: 'https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/218992/8q1lcPK8B8fGxoMPbLbsg.jpg',
     title: 'Сообщество единомышленников',
     subtitle: 'Обсуждайте и делитесь своими впечатлениями',
   },
