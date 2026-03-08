@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { FiSearch } from 'react-icons/fi'
+import { useSelector, useDispatch } from 'react-redux'
 import api from '../api/axios'
 import MovieCard from '../components/MovieCard'
 import TrackCard from '../components/TrackCard'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { useToast } from '../contexts/ToastContext'
+import { addFavoriteLocal, removeFavoriteLocal } from '../store/authSlice'
 import './Catalog.css'
 
 export default function Catalog() {
+  const dispatch = useDispatch()
   const [searchParams, setSearchParams] = useSearchParams()
   const { showToast } = useToast()
+  const favorites = useSelector((s) => s.auth.favorites || [])
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'movies')
   const [searchQuery, setSearchQuery] = useState('')
   const [items, setItems] = useState([])
@@ -56,11 +60,22 @@ export default function Catalog() {
       return
     }
     try {
-      await api.post('/favorites/toggle', { item_type: itemType, item_id: itemId })
-      showToast('Добавлено в избранное', 'success')
+      const res = await api.post('/favorites/toggle', { item_type: itemType, item_id: itemId })
+      const isFavorite = res.data.is_favorite
+      if (isFavorite) {
+        dispatch(addFavoriteLocal({ item_type: itemType, item_id: itemId }))
+        showToast('Добавлено в избранное', 'success')
+      } else {
+        dispatch(removeFavoriteLocal({ item_type: itemType, item_id: itemId }))
+        showToast('Удалено из избранного', 'info')
+      }
     } catch {
       showToast('Ошибка', 'error')
     }
+  }
+
+  const isFavorite = (itemType, itemId) => {
+    return favorites.some((f) => f.item_type === itemType && f.item_id === itemId)
   }
 
   return (
@@ -111,6 +126,7 @@ export default function Catalog() {
                     key={movie.id}
                     movie={movie}
                     onToggleFavorite={handleToggleFavorite}
+                    isFavorite={isFavorite('movie', movie.id)}
                   />
                 ))}
               </div>
@@ -121,6 +137,7 @@ export default function Catalog() {
                     key={track.id}
                     track={track}
                     onToggleFavorite={handleToggleFavorite}
+                    isFavorite={isFavorite('track', track.id)}
                   />
                 ))}
               </div>

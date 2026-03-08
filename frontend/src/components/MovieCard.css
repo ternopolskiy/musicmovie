@@ -52,12 +52,22 @@
   padding: 10px;
   border-radius: 50%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--transition-fast);
 }
 
 .movie-card__favorite:hover {
-  background: var(--accent);
+  background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
+}
+
+.movie-card__favorite--active {
+  background: var(--accent);
+}
+
+.movie-card__favorite--active:hover {
+  background: var(--accent-dark);
 }
 
 .movie-card__content {

@@ -30,14 +30,15 @@ export default function TrackCard({ track, onToggleFavorite, isFavorite = false 
             <FiPlay size={24} fill="#fff" />
           </a>
           <button
-            className="track-card__favorite"
+            className={`track-card__favorite ${isFavorite ? 'track-card__favorite--active' : ''}`}
             onClick={handleFavoriteClick}
             title={isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}
           >
             <FiHeart
               size={20}
-              fill={isFavorite ? 'var(--accent)' : 'none'}
-              color={isFavorite ? 'var(--accent)' : '#fff'}
+              fill={isFavorite ? '#fff' : 'none'}
+              stroke="#fff"
+              strokeWidth={2}
             />
           </button>
         </div>

@@ -53,6 +53,8 @@
   padding: 12px;
   border-radius: 50%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--transition-fast);
 }
 
@@ -62,8 +64,16 @@
 }
 
 .track-card__favorite:hover {
-  background: var(--accent);
+  background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
+}
+
+.track-card__favorite--active {
+  background: var(--accent);
+}
+
+.track-card__favorite--active:hover {
+  background: var(--accent-dark);
 }
 
 .track-card__content {

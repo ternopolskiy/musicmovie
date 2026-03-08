@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FiSearch } from 'react-icons/fi'
+import { useSelector, useDispatch } from 'react-redux'
 import api from '../api/axios'
 import HeroSlider from '../components/HeroSlider'
 import MovieCard from '../components/MovieCard'
 import TrackCard from '../components/TrackCard'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { useToast } from '../contexts/ToastContext'
+import { addFavoriteLocal, removeFavoriteLocal } from '../store/authSlice'
 import './Home.css'
 
 export default function Home() {
+  const dispatch = useDispatch()
   const { showToast } = useToast()
+  const favorites = useSelector((s) => s.auth.favorites || [])
   const [stats, setStats] = useState({ movies: 0, tracks: 0, users: 0 })
   const [popularMovies, setPopularMovies] = useState([])
   const [popularTracks, setPopularTracks] = useState([])
@@ -64,11 +68,22 @@ export default function Home() {
     }
 
     try {
-      await api.post('/favorites/toggle', { item_type: itemType, item_id: itemId })
-      showToast('Добавлено в избранное', 'success')
+      const res = await api.post('/favorites/toggle', { item_type: itemType, item_id: itemId })
+      const isFavorite = res.data.is_favorite
+      if (isFavorite) {
+        dispatch(addFavoriteLocal({ item_type: itemType, item_id: itemId }))
+        showToast('Добавлено в избранное', 'success')
+      } else {
+        dispatch(removeFavoriteLocal({ item_type: itemType, item_id: itemId }))
+        showToast('Удалено из избранного', 'info')
+      }
     } catch {
       showToast('Ошибка', 'error')
     }
+  }
+
+  const isFavorite = (itemType, itemId) => {
+    return favorites.some((f) => f.item_type === itemType && f.item_id === itemId)
   }
 
   if (loading) {
@@ -121,6 +136,7 @@ export default function Home() {
               key={track.id}
               track={track}
               onToggleFavorite={handleToggleFavorite}
+              isFavorite={isFavorite('track', track.id)}
             />
           ))}
         </div>
@@ -139,6 +155,7 @@ export default function Home() {
               key={movie.id}
               movie={movie}
               onToggleFavorite={handleToggleFavorite}
+              isFavorite={isFavorite('movie', movie.id)}
             />
           ))}
         </div>

@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { loadUser } from './store/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadUser, fetchFavorites } from './store/authSlice'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -21,11 +21,18 @@ import Admin from './pages/Admin'
 
 export default function App() {
   const dispatch = useDispatch()
+  const { isAuthenticated } = useSelector((s) => s.auth)
   const location = useLocation()
 
   useEffect(() => {
     dispatch(loadUser())
   }, [dispatch])
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(fetchFavorites())
+    }
+  }, [dispatch, isAuthenticated])
 
   useEffect(() => {
     window.scrollTo(0, 0)

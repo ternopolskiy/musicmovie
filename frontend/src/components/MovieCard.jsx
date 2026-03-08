@@ -21,14 +21,15 @@ export default function MovieCard({ movie, onToggleFavorite, isFavorite = false 
         />
         <div className="movie-card__overlay">
           <button
-            className="movie-card__favorite"
+            className={`movie-card__favorite ${isFavorite ? 'movie-card__favorite--active' : ''}`}
             onClick={handleFavoriteClick}
             title={isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}
           >
             <FiHeart
               size={20}
-              fill={isFavorite ? 'var(--accent)' : 'none'}
-              color={isFavorite ? 'var(--accent)' : '#fff'}
+              fill={isFavorite ? '#fff' : 'none'}
+              stroke="#fff"
+              strokeWidth={2}
             />
           </button>
         </div>
