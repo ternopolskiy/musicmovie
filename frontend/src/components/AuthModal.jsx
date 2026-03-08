@@ -111,7 +111,10 @@ export default function AuthModal({ onClose }) {
         </form>
 
         <div className="auth-modal__spotify">
-          <button className="auth-modal__spotify-btn" disabled>
+          <button
+            className="auth-modal__spotify-btn"
+            onClick={() => window.open('https://yandex.ru/video/preview/11843531504909666715', '_blank')}
+          >
             <svg viewBox="0 0 24 24" className="auth-modal__spotify-icon">
               <path
                 fill="currentColor"
