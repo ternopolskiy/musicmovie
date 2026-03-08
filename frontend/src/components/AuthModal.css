@@ -6,31 +6,31 @@
   align-items: center;
   justify-content: center;
   z-index: 5000;
-  animation: fadeIn 0.2s ease;
-  backdrop-filter: blur(4px);
+  animation: fadeIn 0.15s ease-out;
 }
 
 .auth-modal {
   background: var(--bg-secondary);
   border-radius: var(--border-radius-lg);
   width: 90%;
-  max-width: 420px;
-  padding: 32px;
+  max-width: 480px;
+  padding: 40px 40px 32px;
   position: relative;
-  animation: scaleIn 0.3s ease;
+  animation: scaleIn 0.2s ease-out;
   border: 1px solid var(--bg-highlight);
 }
 
 .auth-modal__close {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 4px;
+  right: 4px;
   background: none;
   color: var(--text-secondary);
-  padding: 8px;
+  padding: 10px;
   border-radius: 50%;
   display: flex;
-  transition: var(--transition-fast);
+  transition: opacity 0.1s linear, background-color 0.1s linear;
+  z-index: 10;
 }
 
 .auth-modal__close:hover {
@@ -51,7 +51,7 @@
   color: var(--text-secondary);
   border-radius: var(--border-radius);
   font-weight: 500;
-  transition: var(--transition-fast);
+  transition: background-color 0.1s linear, color 0.1s linear;
 }
 
 .auth-modal__tab--active {
@@ -73,11 +73,11 @@
   background: var(--bg-tertiary);
   border-radius: var(--border-radius);
   border: 1px solid transparent;
-  transition: var(--transition-fast);
+  transition: border-color 0.1s linear;
 }
 
 .auth-modal__field:focus-within {
-  border-color: var(--accent);
+  border-color: var(--bg-highlight);
 }
 
 .auth-modal__icon {
@@ -91,6 +91,13 @@
   border: none;
   color: var(--text-primary);
   font-size: 14px;
+  outline: none;
+  box-shadow: none;
+}
+
+.auth-modal__field input:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .auth-modal__field input::placeholder {
@@ -106,7 +113,7 @@
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: var(--transition-fast);
+  transition: background-color 0.1s linear, transform 0.1s linear;
   margin-top: 8px;
 }
 
@@ -138,7 +145,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: var(--transition-fast);
+  transition: opacity 0.1s linear;
   opacity: 0.7;
   cursor: not-allowed;
 }

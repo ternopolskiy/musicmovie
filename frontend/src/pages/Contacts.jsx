@@ -45,19 +45,19 @@ export default function Contacts() {
           <div className="contacts__card">
             <FiMail className="contacts__icon" />
             <h3>Email</h3>
-            <a href="mailto:info@musicmovie.com">info@musicmovie.com</a>
+            <a href="mailto:spotik.akount@gmail.com">spotik.akount@gmail.com</a>
           </div>
 
           <div className="contacts__card">
             <FiPhone className="contacts__icon" />
             <h3>Телефон</h3>
-            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+            <a href="tel:+79237008277">+7 (923) 700-82-77</a>
           </div>
 
           <div className="contacts__card">
             <FiMapPin className="contacts__icon" />
             <h3>Адрес</h3>
-            <p>Москва, Россия</p>
+            <p>Новосибирск, Россия</p>
           </div>
         </div>
 
