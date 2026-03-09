@@ -10,193 +10,133 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-A full-stack web platform that combines music and movies into a seamless entertainment experience. Built with FastAPI backend and React frontend.
+A full-stack web platform that combines music and movies into a seamless entertainment experience.
 
-## 📋 Table of Contents
+---
 
-- [Prerequisites](#-prerequisites)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
-- [Running the Application](#-running-the-application)
-- [API Documentation](#-api-documentation)
-- [Testing](#-testing)
+## 📸 Project Showcase
 
-## 📋 Prerequisites
+### Main Interface
 
-Before you begin, ensure you have the following installed:
+![Главный экран](image/Главный%20экран.jpg)
 
-- **Python 3.11.4** or higher - [Download](https://www.python.org/downloads/)
-- **Node.js 20+** - [Download](https://nodejs.org/)
-- **Git** - [Download](https://git-scm.com/)
+### Dashboard & Statistics
 
-## 📁 Project Structure
+![Счетчик фильмов, треков и кол-во пользователей](image/1.%20счетчик%20фильмов,%20треков%20и%20кол-во%20пользователей.jpg)
 
-```
-MusicMovie/
-├── backend/                 # FastAPI backend
-│   ├── app/                # Application source code
-│   ├── alembic/            # Database migrations
-│   ├── tests/              # Test files
-│   ├── alembic.ini         # Alembic configuration
-│   ├── requirements.txt    # Python dependencies
-│   └── seed.py             # Database seeding script
-├── frontend/               # React frontend
-│   ├── src/               # Source files
-│   ├── public/            # Public assets
-│   ├── package.json       # Node dependencies
-│   └── .env               # Environment variables
-└── README.md
-```
+### Browse Movies
 
-## 🚀 Installation
+![Каталог фильмов](image/каталог%20+%20поиск%20фильмов.png)
+
+![Список популярных фильмов](image/1.%20список%20популярных%20фильмов.jpg)
+
+### Browse Music
+
+![Каталог треков](image/каталог%20+%20поиск%20треков.png)
+
+### User Features
+
+![Избранное](image/избранное%20с%20фильмами%20и%20треками.png)
+
+![Новости](image/новости.png)
+
+### Community
+
+![Форум](image/форум.png)
+
+![Создать пост](image/создать%20пост%20на%20форуме.png)
+
+### Admin Panel
+
+![Редактирование фильмов](image/админ-паннель,%20редактирование%20инф.%20о%20фильмах.png)
+
+![Редактирование треков](image/админ-паннель,%20редактирование%20инф.%20о%20треках.png)
+
+![Редактирование новостей](image/админ-паннель,%20редактирование%20новостей.png)
+
+![Редактирование комментариев](image/админ-паннель,%20редактирование%20комментариев.png)
+
+![Управление пользователями](image/отображение%20пользователей.png)
+
+![Контактная информация](image/контактная%20информация.png)
+
+### Authentication
+
+![Вход](image/окно%20входа.jpg)
+
+![Регистрация](image/окно%20регистраци.jpg)
+
+---
+
+## 🚀 Quick Start
 
 ### Backend Setup
 
-1. **Navigate to the backend directory:**
-   ```bash
-   cd backend
-   ```
+```bash
+# Navigate to backend
+cd backend
 
-2. **Create a virtual environment:**
-   ```bash
-   python -m venv .venv
-   ```
+# Create virtual environment
+python -m venv .venv
 
-3. **Activate the virtual environment:**
+# Activate virtual environment
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
 
-   **Windows:**
-   ```bash
-   .venv\Scripts\activate
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-   **macOS/Linux:**
-   ```bash
-   source .venv/bin/activate
-   ```
+# Initialize database
+alembic upgrade head
 
-4. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# (Optional) Seed database
+python seed.py
 
-5. **Set up the database:**
-   ```bash
-   alembic upgrade head
-   ```
-
-6. **(Optional) Seed the database with initial data:**
-   ```bash
-   python seed.py
-   ```
+# Run backend server
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
 
 ### Frontend Setup
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
+```bash
+# Navigate to frontend
+cd frontend
 
-2. **Install Node.js dependencies:**
-   ```bash
-   npm install
-   ```
+# Install dependencies
+npm install
 
-3. **Configure environment variables:**
-   
-   Copy the `.env` file and adjust settings if needed:
-   ```bash
-   # The .env file should contain:
-   VITE_API_URL=http://localhost:8000
-   ```
+# Run development server
+npm run dev
+```
 
-## 🏃 Running the Application
+### Access the Application
 
-### Running the Backend
+- **Frontend:** http://localhost:3000
+- **Backend API:** http://localhost:8000
+- **API Docs:** http://localhost:8000/docs
 
-1. **Activate the virtual environment** (if not already active):
-   ```bash
-   # Windows
-   .venv\Scripts\activate
-   
-   # macOS/Linux
-   source .venv/bin/activate
-   ```
+---
 
-2. **Start the FastAPI server:**
-   ```bash
-   uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-   ```
+## 📋 Prerequisites
 
-   The backend API will be available at `http://localhost:8000`
+- **Python 3.11.4+** - [Download](https://www.python.org/downloads/)
+- **Node.js 20+** - [Download](https://nodejs.org/)
+- **Git** - [Download](https://git-scm.com/)
 
-### Running the Frontend
-
-1. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-
-2. **Open your browser** and navigate to the URL shown in the terminal (typically `http://localhost:5173`)
-
-## 📚 API Documentation
-
-Once the backend is running, you can access:
-
-- **Swagger UI:** [http://localhost:8000/docs](http://localhost:8000/docs)
-- **ReDoc:** [http://localhost:8000/redoc](http://localhost:8000/redoc)
-- **Health Check:** [http://localhost:8000/health](http://localhost:8000/health)
+---
 
 ## 🧪 Testing
 
 ### Backend Tests
-
 ```bash
 cd backend
 pytest
 ```
 
-Run with coverage:
-```bash
-pytest --cov=app
-```
-
 ### Frontend Tests
-
 ```bash
 cd frontend
 npm test
 ```
-
-## ⚙️ Environment Variables
-
-### Backend (.env in backend/app/)
-
-```env
-DATABASE_URL=sqlite:///./musicmovie.db
-SECRET_KEY=your-secret-key-here
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-CORS_ORIGINS=http://localhost:5173,http://localhost:3000
-```
-
-### Frontend (.env in frontend/)
-
-```env
-VITE_API_URL=http://localhost:8000
-```
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
