@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: .
+      target: backend
+    container_name: musicmovie-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - sqlite_data:/app/backend/data
+    environment:
+      - DATABASE_URL=sqlite:///./data/musicmovie.db
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000,http://frontend:5173
+    command: sh -c "rm -f /app/backend/data/musicmovie.db && alembic upgrade head && python seed.py && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    restart: unless-stopped
+    networks:
+      - musicmovie-network
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    container_name: musicmovie-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - PORT=3000
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - musicmovie-network
+
+volumes:
+  sqlite_data:
+
+networks:
+  musicmovie-network:
+    driver: bridge

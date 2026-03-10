@@ -111,6 +111,11 @@ npm install
 npm run dev
 ```
 
+### DOCKER BUILD
+```bash
+docker-compose up --build
+```
+
 ### Access the Application
 
 - **Frontend:** http://localhost:3000

@@ -46,7 +46,7 @@ def seed_database(db: Session):
     # Create movies
     movie1 = Movie(
         title="The Shawshank Redemption",
-        poster_url="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
+        poster_url="https://upload.wikimedia.org/wikipedia/ru/thumb/d/de/Movie_poster_the_shawshank_redemption.jpg/250px-Movie_poster_the_shawshank_redemption.jpg",
         year=1994,
         director="Frank Darabont",
         genres="Drama",
@@ -58,7 +58,7 @@ def seed_database(db: Session):
 
     movie2 = Movie(
         title="The Godfather",
-        poster_url="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+        poster_url="https://basket-05.wbbasket.ru/vol777/part77715/77715332/images/big/1.webp",
         year=1972,
         director="Francis Ford Coppola",
         genres="Crime, Drama",
@@ -70,7 +70,7 @@ def seed_database(db: Session):
 
     movie3 = Movie(
         title="Pulp Fiction",
-        poster_url="https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+        poster_url="https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00ZTAyLTkyODMtZGRiZDg0MjA2YThkXkEyXkFqcGc@._V1_.jpg",
         year=1994,
         director="Quentin Tarantino",
         genres="Crime, Drama",
@@ -83,7 +83,7 @@ def seed_database(db: Session):
     # Create tracks
     track1 = Track(
         title="The Shawshank Redemption Theme",
-        cover_url="https://i.scdn.co/image/ab67616d0000b273e3e3b64cea45265469d4cafa",
+        cover_url="https://upload.wikimedia.org/wikipedia/ru/thumb/d/de/Movie_poster_the_shawshank_redemption.jpg/250px-Movie_poster_the_shawshank_redemption.jpg",
         artist="Thomas Newman",
         movie_id=movie1.id,
         spotify_url="https://open.spotify.com/search/The%20Shawshank%20Redemption%20soundtrack",
@@ -92,7 +92,7 @@ def seed_database(db: Session):
 
     track2 = Track(
         title="The Godfather Waltz",
-        cover_url="https://i.scdn.co/image/ab67616d0000b273a0e5a32b1f3f8717e0a5e6c6",
+        cover_url="https://basket-05.wbbasket.ru/vol777/part77715/77715332/images/big/1.webp",
         artist="Nino Rota",
         movie_id=movie2.id,
         spotify_url="https://open.spotify.com/search/The%20Godfather%20soundtrack",
@@ -101,7 +101,7 @@ def seed_database(db: Session):
 
     track3 = Track(
         title="Misirlou",
-        cover_url="https://i.scdn.co/image/ab67616d0000b273c8b444df0f45b5b25a5e7a2c",
+        cover_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThazh2c6IWihBmbrtWmsXhoQKgXi3sC--VTQ&s",
         artist="Dick Dale",
         movie_id=movie3.id,
         spotify_url="https://open.spotify.com/search/Pulp%20Fiction%20soundtrack",
@@ -110,7 +110,7 @@ def seed_database(db: Session):
 
     track4 = Track(
         title="Bohemian Rhapsody",
-        cover_url="https://i.scdn.co/image/ab67616d0000b273ce4f1737bc8a646c8c4bd25a",
+        cover_url="https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_FMjpg_UX1000_.jpg",
         artist="Queen",
         movie_id=None,
         spotify_url="https://open.spotify.com/track/4u7EnebtmKWzUH433cf5Qv",
