@@ -10,7 +10,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-A full-stack web platform that combines music and movies into a seamless entertainment experience.
+A full-stack web platform that combines music and movies into a seamless entertainment experience
 
 ---
 
